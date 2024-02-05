@@ -1,0 +1,16 @@
+.visual-avatar {
+  width: 60px;
+  height: 60px;
+}
+
+.visual-name {
+  display: block;
+  line-height: 24px;
+  margin: 12px 0 20px 0;
+}
+
+.visual-title {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+}

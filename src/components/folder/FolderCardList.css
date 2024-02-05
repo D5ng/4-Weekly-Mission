@@ -1,0 +1,6 @@
+.folderCardList {
+  display: grid;
+  grid-template-columns: repeat(3, 340px);
+  gap: 24px 20px;
+  justify-items: center;
+}
