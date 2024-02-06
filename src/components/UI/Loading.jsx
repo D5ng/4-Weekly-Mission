@@ -1,7 +1,14 @@
 import React from "react"
+import Wrapper from "../layout/Wrapper"
+
+import "./Loading.css"
 
 function Loading({ children }) {
-  return <p className="loading">{children}</p>
+  return (
+    <Wrapper className="loading-container">
+      <span className="loading">{children}</span>
+    </Wrapper>
+  )
 }
 
 export default Loading

@@ -3,8 +3,8 @@ import React from "react"
 import "./FolderCardList.css"
 import FolderCardItem from "./FolderCardItem"
 
-function FolderCardList({ folderData }) {
-  const { links } = folderData.folder
+function FolderCardList({ data }) {
+  const { links } = data.folder
   return (
     <ul className="folderCardList">
       {links.map((link) => (
