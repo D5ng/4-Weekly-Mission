@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer, useState } from "react"
+import { useCallback, useReducer } from "react"
 import HttpError from "../utils/httpError"
 
 const reducer = (state, action) => {
@@ -33,8 +33,6 @@ function useHttp() {
     isLoaing: false,
     hasError: false,
   })
-
-  // const [data, setData] = useState(null)
 
   const fetchRequest = useCallback(async (api) => {
     dispatch({ type: "PENDING" })
