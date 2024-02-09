@@ -10,10 +10,14 @@ export const requestHTTP = async (url, options) => {
       },
     })
 
-    if (!response.ok) throw new HttpError("알 수 없는 오류가 발생했습니다.", response.status)
+    if (response.status === 409) throw new HttpError("이미 존재하는 이메일입니다.", response.status)
+    if (!response.ok) throw new HttpError("이메일 검사중 오류가 발생했습니다.", response.status)
 
     const responseData = await response.json()
-    return responseData
+
+    return {
+      result: responseData.data.isUsableNickname,
+    }
   } catch (error) {
     return {
       result: false,

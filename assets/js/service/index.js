@@ -12,9 +12,7 @@ class AuthService {
       body: JSON.stringify({ email }),
     })
 
-    if ("result" in responseData) return true
-
-    return false
+    return !responseData.result ? true : false
   }
 
   async login(email, password) {
