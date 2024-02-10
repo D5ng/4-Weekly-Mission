@@ -11,8 +11,8 @@ function FolderCardItem({ data }) {
   const date = momentFormat(data.createdAt)
   return (
     <li className="folderCardItem">
-      <a href={data.url} target="_blank" rel="noreferrer">
-        <Card>
+      <Card tagName="article">
+        <a href={data.url} target="_blank" rel="noreferrer noopener">
           <div className="folderCardItem-image">
             <img src={defaultImage} alt="" />
           </div>
@@ -21,8 +21,8 @@ function FolderCardItem({ data }) {
             <p className="folderCardItem-description">{data.description}</p>
             <span className="folderCardItem-date">{date}</span>
           </div>
-        </Card>
-      </a>
+        </a>
+      </Card>
     </li>
   )
 }

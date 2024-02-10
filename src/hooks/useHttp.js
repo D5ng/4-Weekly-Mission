@@ -9,7 +9,7 @@ const reducer = (state, action) => {
         isLoading: true,
       }
 
-    case "FULFILED":
+    case "SUCCESS":
       return {
         ...state,
         data: action.data,
@@ -20,37 +20,34 @@ const reducer = (state, action) => {
       return {
         ...state,
         isLoading: false,
-        hasError: true,
+        hasError: action.message,
       }
 
     default:
+      return { ...state }
   }
 }
 
+const INITIAL_VALUES = {
+  data: null,
+  isLoading: false,
+  hasError: null,
+}
+
 function useHttp() {
-  const [state, dispatch] = useReducer(reducer, {
-    data: null,
-    isLoaing: false,
-    hasError: false,
-  })
+  const [state, dispatch] = useReducer(reducer, INITIAL_VALUES)
 
   const fetchRequest = useCallback(async (api) => {
     dispatch({ type: "PENDING" })
-
     try {
       const response = await fetch(api)
 
-      if (!response.ok) throw new HttpError("알 수 없는 요청에 실패했습니다.", 500)
+      if (!response.ok) throw new HttpError("알 수 없는 이유로 요청에 실패했습니다.", 500)
 
       const responseData = await response.json()
-
-      dispatch({ type: "FULFILED", data: responseData })
+      dispatch({ type: "SUCCESS", data: responseData })
     } catch (error) {
-      dispatch({ type: "ERROR" })
-      return {
-        messgae: error.message,
-        code: error.statusCode,
-      }
+      dispatch({ type: "ERROR", message: error })
     }
   }, [])
 

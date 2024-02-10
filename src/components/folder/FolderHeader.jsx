@@ -1,16 +1,25 @@
-import React from "react"
-import Avatar from "../../assets/images/icon/avatar.svg"
+import React, { useContext } from "react"
 import Wrapper from "../layout/Wrapper"
 
 import "./FolderHeader.css"
+import { FolderContext } from "../../context/FolderContext"
+import Loading from "../UI/Loading"
+import FolderHeaderInfo from "./FolderHeaderInfo"
+import ErrorCard from "../UI/ErrorCard"
 
 function FolderHeader() {
+  const { isLoading, data, hasError } = useContext(FolderContext)
+
+  const renderLoading = isLoading && !data && <Loading />
+  const renderSuccess = !isLoading && !hasError && data && <FolderHeaderInfo data={data} />
+  const renderFailed = hasError && <ErrorCard>{hasError.message}</ErrorCard>
+
   return (
     <section className="folderHeader">
       <Wrapper className="folderHeader-container">
-        <img src={Avatar} alt="" className="folderHeader-avatar" />
-        <span className="folderHeader-name">@코드잇</span>
-        <h2 className="folderHeader-title">⭐️ 즐겨찾기</h2>
+        {renderLoading}
+        {renderSuccess}
+        {renderFailed}
       </Wrapper>
     </section>
   )

@@ -9,3 +9,9 @@
   width: 28px;
   height: 28px;
 }
+
+@media (max-width: 769px) {
+  .header-profile span {
+    display: none;
+  }
+}

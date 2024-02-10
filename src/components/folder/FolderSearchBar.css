@@ -1,6 +1,5 @@
 .search {
   margin: 40px auto;
-  width: 1060px;
   height: 54px;
   position: relative;
 }
@@ -25,4 +24,12 @@
   top: 50%;
   transform: translateY(-50%);
   left: 16px;
+}
+
+@media (max-width: 769px) {
+  .search {
+    margin: 20px auto 32px;
+    height: 54px;
+    position: relative;
+  }
 }

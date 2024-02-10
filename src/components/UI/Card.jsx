@@ -2,8 +2,9 @@ import React from "react"
 
 import "./Card.css"
 
-function Card({ children }) {
-  return <div className="card">{children}</div>
+function Card({ className, children, tagName = "div" }) {
+  const CustomTag = `${tagName}`
+  return <CustomTag className={`${className} card`}>{children}</CustomTag>
 }
 
 export default Card

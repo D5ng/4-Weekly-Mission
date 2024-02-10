@@ -3,15 +3,26 @@ import Wrapper from "../layout/Wrapper"
 import { FolderSearchBar, FolderCardList } from "./"
 import Loading from "../UI/Loading"
 import { FolderContext } from "../../context/FolderContext"
+import ErrorCard from "../UI/ErrorCard"
 
 function FolderBody() {
-  const { isLoading, data } = useContext(FolderContext)
+  const { isLoading, data, hasError } = useContext(FolderContext)
+
+  const renderLoading = isLoading && <Loading />
+  const renderSuccess = !isLoading && data && !hasError && (
+    <>
+      <FolderSearchBar type="text" placeholder="링크를 검색해 보세요." name="search" />
+      <FolderCardList data={data} />
+    </>
+  )
+  const renderFailed = hasError && <ErrorCard>{hasError.message}</ErrorCard>
+
   return (
-    <section>
+    <section className="folderBody">
       <Wrapper>
-        {isLoading && <Loading>로딩 중...</Loading>}
-        <FolderSearchBar type="text" placeholder="링크를 검색해 보세요." name="search" />
-        {data && <FolderCardList data={data} />}
+        {renderLoading}
+        {renderSuccess}
+        {renderFailed}
       </Wrapper>
     </section>
   )
