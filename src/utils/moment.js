@@ -11,12 +11,12 @@ export const elapsedTimeCalc = (date) => {
   const end = new Date(date)
 
   const minutes = Math.floor((Date.now() - end.getTime()) / 1000 / 60)
-  if (minutes < 2) return `1 minute ago`
-  if (minutes < 59) return `${minutes} minute ago`
+  if (minutes <= 1) return `1 minute ago`
+  if (minutes < 60) return `${minutes} minute ago`
 
   const hours = Math.floor(minutes / 60)
   if (hours < 1) return `1 hour ago`
-  if (hours <= 23) return `${hours} hours ago`
+  if (hours < 24) return `${hours} hours ago`
 
   const day = Math.floor(hours / 24)
   if (day <= 1) return `1 day ago`
