@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Modal } from "../context/modal-context"
 import { fetchProfile } from "@/services/business-sevice"
+import { Profile } from "@/types/category-type"
 
 interface ShareModalProps {
   onCloseModal: () => void
@@ -8,13 +9,16 @@ interface ShareModalProps {
 }
 
 export default function FolderShareModal({ onCloseModal, categoryData }: ShareModalProps) {
-  const [profileData, setProfileData] = useState()
+  const [profileData, setProfileData] = useState<Profile | null>(null)
   const value = { onCloseModal, categoryData, profileData }
 
   useEffect(() => {
     const fetchData = async () => {
       const profileData = await fetchProfile()
-      setProfileData(profileData)
+
+      if(!(profileData instanceof Error)){
+        setProfileData(profileData)
+      }
     }
 
     fetchData()

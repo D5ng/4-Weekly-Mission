@@ -23,5 +23,6 @@ export async function filteredLinks(query: string = "", folderId: string = "") {
 
 export async function fetchProfile() {
   const responseData = await fetchData<Profile[]>(PROFILE_API)
-  return responseData
+  if (responseData instanceof Error) return responseData;
+  return responseData[0]
 }

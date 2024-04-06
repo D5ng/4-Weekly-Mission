@@ -10,15 +10,15 @@ import { fetchProfile } from "@/services/business-sevice"
 export async function MyProfile() {
   const responseData = await fetchProfile()
 
-  if ("error" in responseData) {
+  if (responseData instanceof Error) {
     return (
       <Button href="/signup" size="medium">
         로그인
       </Button>
-    )
+    );
   }
 
-  return <Profile data={responseData[0]} />
+  return <Profile data={responseData} />
 }
 
 export default function Header() {

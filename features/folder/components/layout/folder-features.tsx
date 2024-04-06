@@ -24,7 +24,9 @@ export default async function FolderFeatures(props: FolderFeaturesProps) {
   return (
     <section>
       <Wrapper>
-        <SearchBar type="text" placeholder="링크를 검색해 보세요." name="search" />
+        <Suspense fallback={<Loading />}>
+          <SearchBar type="text" placeholder="링크를 검색해 보세요." name="search" />
+        </Suspense>
         <FlexLayout>
           <Suspense fallback={<Loading />}>
             <Category />

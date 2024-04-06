@@ -1,28 +1,24 @@
 import Image from "next/image"
 import classes from "./profile.module.css"
 import defaultImage from "@/public/common/defaultProfile.svg"
+import type { Profile } from "@/types/category-type"
 
 interface ProfileProps {
-  data: {
-    email: string
-    id: number
-    image_source: string
-    name: string
-  }
+  data: Profile
 }
 
-function Profile({ data }: ProfileProps) {
-  const image = data.image_source || defaultImage
+function Profile(props: ProfileProps) {
+  const image = props.data.image_source || defaultImage
 
-  if (!data) return null
+  if (!props.data) return null;
   return (
     <div className={classes.profile}>
       <div className={classes.imageWrapper}>
         <Image src={image} alt="프로필 이미지" fill />
       </div>
-      <span className={classes.email}>{data.email}</span>
+      <span className={classes.email}>{props.data.email}</span>
     </div>
-  )
+  );
 }
 
 export default Profile
