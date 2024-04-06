@@ -1,0 +1,59 @@
+.section-form {
+  background-color: var(--gray5);
+  padding: 24px 0;
+  width: 100%;
+}
+
+.form {
+  width: 100%;
+  max-width: 800px;
+  height: 69px;
+  border: 1px solid var(--primary);
+  border-radius: 15px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.inputLayout {
+  width: calc(100% - 120px);
+  display: flex;
+  align-items: center;
+}
+
+.inputLayout img {
+  width: 20px;
+  height: 20px;
+}
+
+.inputLayout input {
+  height: 24px;
+  margin-left: 12px;
+  line-height: 24px;
+  background-color: red;
+  width: calc(100% - 32px);
+  background-color: transparent;
+}
+
+.inputLayout input::placeholder {
+  color: var(--gray2);
+}
+
+@media (max-width: 769px) {
+  .form {
+    height: 53px;
+    padding: 0 10px;
+  }
+
+  .inputLayout img {
+    width: 16px;
+    height: 16px;
+  }
+  .inputLayout input {
+    margin-left: 8px;
+    font-size: 14px;
+  }
+}

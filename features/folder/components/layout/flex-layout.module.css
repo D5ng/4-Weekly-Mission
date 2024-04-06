@@ -1,0 +1,13 @@
+.flexLayout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0;
+}
+
+@media (max-width: 900px) {
+  .flexLayout + .flexLayout {
+    display: block;
+    margin: 28px 0 20px 0;
+  }
+}

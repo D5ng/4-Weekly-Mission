@@ -1,0 +1,11 @@
+.button {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid var(--primary);
+  height: 100%;
+}
+
+.button.active {
+  color: white;
+  background: var(--primary);
+}

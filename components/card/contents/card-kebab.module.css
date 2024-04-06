@@ -1,0 +1,9 @@
+.kebab {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+.kebab img {
+  width: 21px;
+}

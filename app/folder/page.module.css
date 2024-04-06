@@ -1,0 +1,18 @@
+.section-form {
+  background-color: var(--gray5);
+  padding: 24px 0;
+  width: 100%;
+}
+
+.categories {
+  position: relative;
+  display: flex;
+  gap: 0 8px;
+}
+
+@media (max-width: 900px) {
+  .categories {
+    flex-wrap: wrap;
+    gap: 12px 8px;
+  }
+}

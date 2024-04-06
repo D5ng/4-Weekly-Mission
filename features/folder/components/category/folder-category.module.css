@@ -1,0 +1,12 @@
+.categories {
+  position: relative;
+  display: flex;
+  gap: 0 8px;
+}
+
+@media (max-width: 900px) {
+  .categories {
+    flex-wrap: wrap;
+    gap: 12px 8px;
+  }
+}

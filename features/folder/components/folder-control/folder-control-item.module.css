@@ -1,0 +1,22 @@
+.controlsItem {
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray2);
+}
+
+.controlsItem img {
+  width: 18px;
+  height: 18px;
+}
+
+.controlsItem span {
+  display: block;
+  margin-left: 4px;
+}
+
+.controlsItem button {
+  display: flex;
+  align-items: center;
+  color: inherit;
+}

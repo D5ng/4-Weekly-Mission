@@ -1,0 +1,93 @@
+@keyframes loading {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.skelton {
+  overflow: hidden;
+  position: relative;
+}
+
+.skelton:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(204, 204, 204, 1) 0%,
+    rgba(186, 186, 186, 1) 50%,
+    rgba(204, 204, 204, 1) 100%
+  );
+  animation: loading infinite 1.5s;
+}
+
+.cardItem {
+  width: 100%;
+  height: 335px;
+  box-shadow: 0px 5px 25px 0px #00000014;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: var(--gray200);
+  overflow: hidden;
+  position: relative;
+}
+
+.imageWrapper {
+  width: auto;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--gray300);
+}
+
+.starWrapper {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 33px;
+  height: 33px;
+  border-radius: 4px;
+  z-index: 2;
+  background-color: var(--gray400);
+}
+
+.contents {
+  padding: 15px 20px;
+  height: 135px;
+  overflow: hidden;
+  position: relative;
+}
+
+.elapsedTime {
+  display: block;
+  width: 70px;
+  height: 16px;
+  background-color: var(--gray300);
+  overflow: hidden;
+  position: relative;
+}
+
+.description {
+  width: 100%;
+  height: 24px;
+  background-color: var(--gray300);
+  margin: 10px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.date {
+  display: block;
+  width: 120px;
+  height: 20px;
+  background-color: var(--gray300);
+  overflow: hidden;
+  position: relative;
+}
