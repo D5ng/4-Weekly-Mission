@@ -1,4 +1,3 @@
-import Loading from "@/components/ui/loading"
 import Card from "@/components/card/card"
 import { filteredLinks } from "@/services/business-sevice"
 import { Suspense } from "react"
@@ -11,7 +10,8 @@ async function CardList(props: { query: string; categoryId: string }) {
   return <Card links={links} />
 }
 
-export default function FolderCategoryPage(props: PageProps<"query", "categoryId">) {
+
+export default function FolderCategoryPage(props: any) {
   const query = props.searchParams.query
   const categoryId = props.params.categoryId
 
